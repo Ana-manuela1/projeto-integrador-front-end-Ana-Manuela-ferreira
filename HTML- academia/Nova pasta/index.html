@@ -4,83 +4,124 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Iron Box | Academia</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <header class="header">
-    <nav class="navbar">
-      <div class="logo">IRON<span>BOX</span></div>
-      <ul class="nav-links">
-        <li><a href="#hero">Início</a></li>
-        <li><a href="#sobre">Sobre</a></li>
-        <li><a href="#unidades">Unidades</a></li>
-      </ul>
+  <header>
+    <h1>IRON BOX</h1>
+    <nav>
+      <a href="#sobre">Sobre</a>
+      <a href="#unidades">Unidades</a>
+      <a href="#video">Vídeo</a>
+      <a href="#matricula">Matrícula</a>
+      <a href="#localizacao">Localização</a>
     </nav>
   </header>
 
   <main>
-    <!-- HERO -->
-    <section id="hero" class="hero">
-      <div class="hero-content">
-        <h1>FORJE SEU <span>LIMITE</span></h1>
-        <p>Treino pesado. Estrutura completa. Resultado real.</p>
-        <a href="#unidades" class="btn-primary">Encontre sua unidade</a>
-      </div>
-    </section>
 
     <!-- SOBRE -->
-    <section id="sobre" class="sobre">
-      <div class="sobre-container">
-        <h2>SOBRE A <span>IRON BOX</span></h2>
-        <p>
-          A Iron Box nasceu para quem não aceita treino sem intensidade. Unimos
-          estrutura completa, profissionais qualificados e uma comunidade que
-          te empurra pra frente todos os dias. Aqui, cada treino é uma chance
-          de superar o seu próprio limite.
-        </p>
-        <div class="sobre-grid">
-          <div class="sobre-card">
-            <h3>+10 anos</h3>
-            <p>de experiência transformando corpos e mentes.</p>
-          </div>
-          <div class="sobre-card">
-            <h3>Equipe experiente</h3>
-            <p>professores certificados em diversas modalidades.</p>
-          </div>
-          <div class="sobre-card">
-            <h3>Estrutura completa</h3>
-            <p>equipamentos de ponta e ambiente climatizado.</p>
-          </div>
-        </div>
-      </div>
+    <section id="sobre">
+      <h2>Sobre a Iron Box</h2>
+      <p>
+        A Iron Box nasceu para quem não aceita treino sem intensidade. Unimos
+        estrutura completa, profissionais qualificados e uma comunidade que
+        te empurra pra frente todos os dias.
+      </p>
     </section>
 
     <!-- UNIDADES -->
-    <section id="unidades" class="unidades">
-      <h2>NOSSAS <span>UNIDADES</span></h2>
-      <div class="unidades-grid">
-        <div class="unidade-card">
-          <h3>Iron Box Centro</h3>
-          <p>Rua das Academias, 123 - Centro</p>
-          <p>Seg a Sex: 6h - 22h | Sáb: 8h - 14h</p>
-        </div>
-        <div class="unidade-card">
-          <h3>Iron Box Zona Sul</h3>
-          <p>Av. dos Atletas, 456 - Zona Sul</p>
-          <p>Seg a Sex: 6h - 22h | Sáb: 8h - 14h</p>
-        </div>
-        <div class="unidade-card">
-          <h3>Iron Box Litoral</h3>
-          <p>Av. Beira Mar, 789 - Praia</p>
-          <p>Seg a Sex: 6h - 21h | Sáb: 8h - 13h</p>
-        </div>
-      </div>
+    <section id="unidades">
+      <h2>Nossas Unidades</h2>
+
+      <article>
+        <h3>Iron Box Centro</h3>
+        <p>Rua das Academias, 123 - Centro</p>
+        <p>Seg a Sex: 6h às 22h | Sáb: 8h às 14h</p>
+      </article>
+
+      <article>
+        <h3>Iron Box Zona Sul</h3>
+        <p>Av. dos Atletas, 456 - Zona Sul</p>
+        <p>Seg a Sex: 6h às 22h | Sáb: 8h às 14h</p>
+      </article>
+
+      <article>
+        <h3>Iron Box Litoral</h3>
+        <p>Av. Beira Mar, 789 - Praia</p>
+        <p>Seg a Sex: 6h às 21h | Sáb: 8h às 13h</p>
+      </article>
     </section>
+
+    <!-- VÍDEO -->
+    <section id="video">
+      <h2>Conheça a Iron Box</h2>
+      <video controls width="640" poster="assets/capa-video.jpg" preload="metadata">
+        <source src="assets/apresentacao.mp4" type="video/mp4">
+        <source src="assets/apresentacao.webm" type="video/webm">
+        <track kind="subtitles" src="assets/apresentacao-pt.vtt" srclang="pt" label="Português" default>
+        Seu navegador não suporta vídeo HTML5. <a href="assets/apresentacao.mp4">Baixe o vídeo</a>.
+      </video>
+    </section>
+
+    <!-- FORMULÁRIO DE MATRÍCULA -->
+    <section id="matricula">
+      <h2>Matricule-se</h2>
+      <form>
+        <fieldset>
+          <legend>Dados Pessoais</legend>
+
+          <label for="nome">Nome completo</label>
+          <input type="text" id="nome" name="nome" required>
+
+          <label for="idade">Idade</label>
+          <input type="number" id="idade" name="idade" min="14" max="100" required>
+
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="telefone">Telefone</label>
+          <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000">
+        </fieldset>
+
+        <fieldset>
+          <legend>Plano</legend>
+
+          <label for="unidade">Unidade de preferência</label>
+          <select id="unidade" name="unidade">
+            <option value="">Selecione...</option>
+            <option value="centro">Iron Box Centro</option>
+            <option value="zona-sul">Iron Box Zona Sul</option>
+            <option value="litoral">Iron Box Litoral</option>
+          </select>
+
+          <input type="checkbox" id="termos" name="termos" required>
+          <label for="termos">Aceito os termos de matrícula</label>
+        </fieldset>
+
+        <button type="submit">Enviar matrícula</button>
+      </form>
+    </section>
+
+    <!-- LOCALIZAÇÃO -->
+    <section id="localizacao">
+      <h2>Onde Estamos</h2>
+      <iframe
+        src="https://www.openstreetmap.org/export/embed.html?bbox=-34.88%2C-7.15%2C-34.85%2C-7.10&layer=mapnik"
+        width="600" height="350" loading="lazy"
+        sandbox="allow-scripts allow-same-origin"
+        title="Mapa de localização da Iron Box">
+      </iframe>
+    </section>
+
   </main>
+
+  <footer>
+    <p>&copy; 2026 Iron Box. Todos os direitos reservados.</p>
+  </footer>
+
+</body>
+</html>
 
   <footer class="footer">
     <p>&copy; 2026 Iron Box. Todos os direitos reservados.</p>
