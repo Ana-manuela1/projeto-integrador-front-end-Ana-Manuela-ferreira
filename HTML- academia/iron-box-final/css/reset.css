@@ -1,0 +1,7 @@
+/* ===== reset.css (Aula 6) ===== */
+/* Zera margem/padding padrão e faz o tamanho incluir padding e borda */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}

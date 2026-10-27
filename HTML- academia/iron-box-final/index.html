@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iron Box | Academia</title>
+
+  <!-- Fonte Bebas Neue (títulos) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+  <!-- CSS: primeiro o reset, depois o estilo do projeto -->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== CABEÇALHO + NAVBAR (Aula 3 e Aula 8) ===== -->
+  <header class="topo">
+    <nav class="navbar" aria-label="Navegação principal">
+      <a href="#inicio" class="logo">IRON<span>BOX</span></a>
+
+      <ul class="menu">
+        <li><a href="#inicio" class="ativo">Início</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li class="tem-dropdown">
+          <a href="#unidades">Unidades</a>
+          <ul class="dropdown">
+            <li><a href="#centro">Centro</a></li>
+            <li><a href="#zona-sul">Zona Sul</a></li>
+            <li><a href="#litoral">Litoral</a></li>
+          </ul>
+        </li>
+        <li><a href="#horarios">Horários</a></li>
+        <li><a href="#video">Vídeo</a></li>
+        <li><a href="#matricula">Matrícula</a></li>
+        <li><a href="#localizacao">Localização</a></li>
+      </ul>
+
+      <!-- Só a estrutura visual do hambúrguer (o clique é com JavaScript, Aula 11) -->
+      <button class="menu-hamburguer" type="button" aria-label="Abrir menu" aria-expanded="false">
+        <span class="barra"></span>
+        <span class="barra"></span>
+        <span class="barra"></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ===== CONTEÚDO PRINCIPAL (só pode existir um main por página) ===== -->
+  <main>
+
+    <!-- HERO -->
+    <section id="inicio" class="hero">
+      <h1>Forje seu <span>limite</span></h1>
+      <p>Treino pesado. Estrutura completa. Resultado real.</p>
+      <a href="#matricula" class="botao">Matricule-se agora</a>
+    </section>
+
+    <!-- SOBRE -->
+    <section id="sobre" class="sobre">
+      <h2>Sobre a Iron Box</h2>
+
+      <div class="sobre-grid">
+        <div class="sobre-texto">
+          <p>
+            A Iron Box nasceu para quem não aceita treino sem intensidade.
+            Unimos estrutura completa, profissionais qualificados e uma
+            comunidade que te empurra pra frente todos os dias.
+          </p>
+          <ul class="diferenciais">
+            <li>Musculação e funcional na mesma estrutura</li>
+            <li>Professores certificados</li>
+            <li>Ambiente climatizado e equipamentos de ponta</li>
+            <li>Três unidades para você treinar perto de casa</li>
+          </ul>
+        </div>
+
+        <!-- SVG acessível (Aula 5): selo com viewBox, role="img" e <title> -->
+        <figure class="sobre-selo">
+          <svg viewBox="0 0 160 160" width="160" height="160" role="img" aria-labelledby="titulo-selo">
+            <title id="titulo-selo">Selo: mais de 10 anos de treino pesado</title>
+            <circle cx="80" cy="80" r="76" fill="#1d4ed8" />
+            <circle cx="80" cy="80" r="66" fill="none" stroke="#f5f5f5" stroke-width="2" />
+            <text x="80" y="92" font-size="48" text-anchor="middle" fill="#f5f5f5">+10</text>
+            <text x="80" y="112" font-size="12" text-anchor="middle" fill="#f5f5f5">ANOS DE</text>
+            <text x="80" y="128" font-size="12" text-anchor="middle" fill="#f5f5f5">TREINO PESADO</text>
+          </svg>
+        </figure>
+
+        <figure class="sobre-foto">
+          <img src="assets/images/Logo fitness Iron Box azul (1).png" alt="Espaço de treino da Iron Box (imagem ilustrativa)">
+          <figcaption>Espaço de treino da Iron Box.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- UNIDADES (grade responsiva com Grid, Aula 7) -->
+    <section id="unidades" class="unidades">
+      <h2>Nossas unidades</h2>
+
+      <div class="grade-unidades">
+        <article id="centro" class="unidade-card">
+          <h3>Iron Box Centro</h3>
+          <p>Rua das Academias, 123 - Centro</p>
+          <p>Seg a Sex: 6h às 22h | Sáb: 8h às 14h</p>
+        </article>
+
+        <article id="zona-sul" class="unidade-card">
+          <h3>Iron Box Zona Sul</h3>
+          <p>Av. dos Atletas, 456 - Zona Sul</p>
+          <p>Seg a Sex: 6h às 22h | Sáb: 8h às 14h</p>
+        </article>
+
+        <article id="litoral" class="unidade-card">
+          <h3>Iron Box Litoral</h3>
+          <p>Av. Beira Mar, 789 - Praia</p>
+          <p>Seg a Sex: 6h às 21h | Sáb: 8h às 13h</p>
+        </article>
+      </div>
+
+      <!-- Canvas acessível (Aula 5): desenhado em js/main.js -->
+      <figure class="grafico">
+        <canvas id="grafico-alunos" width="360" height="200" role="img"
+                aria-label="Gráfico de alunos ativos por unidade: Centro, Zona Sul e Litoral">
+          <p>Alunos ativos: Centro 320, Zona Sul 270, Litoral 190.</p>
+        </canvas>
+        <figcaption>Alunos ativos por unidade.</figcaption>
+      </figure>
+    </section>
+
+    <!-- HORÁRIOS (tabela, Aula 2 e Aula 6) -->
+    <section id="horarios" class="horarios">
+      <h2>Horários das aulas</h2>
+
+      <table class="tabela-aulas">
+        <caption>Aulas coletivas da semana</caption>
+        <thead>
+          <tr>
+            <th scope="col">Aula</th>
+            <th scope="col">Dias</th>
+            <th scope="col">Horário</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Funcional</td><td>Seg, Qua e Sex</td><td>18h30</td></tr>
+          <tr><td>Fight</td><td>Ter e Qui</td><td>19h</td></tr>
+          <tr><td>Treino de força</td><td>Seg a Sex</td><td>7h</td></tr>
+          <tr><td>Aulão de sábado</td><td>Sáb</td><td>9h</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- VÍDEO (Aula 4) -->
+    <section id="video" class="video">
+      <h2>Conheça a Iron Box</h2>
+
+      <video controls width="720" poster="assets/images/poster.png" preload="metadata">
+        <source src="assets/video/apresentacao.mp4" type="video/mp4">
+        <source src="assets/video/apresentacao.webm" type="video/webm">
+        <track kind="subtitles" src="assets/video/apresentacao-pt.vtt" srclang="pt" label="Português" default>
+        <p>
+          Seu navegador não suporta vídeo HTML5.
+          <a href="assets/video/apresentacao.mp4">Baixe o vídeo</a>.
+        </p>
+      </video>
+    </section>
+
+    <!-- FORMULÁRIO DE MATRÍCULA (Aula 3) -->
+    <section id="matricula" class="matricula">
+      <h2>Matricule-se</h2>
+
+      <form class="form-matricula">
+        <fieldset>
+          <legend>Dados pessoais</legend>
+
+          <label for="nome">Nome completo</label>
+          <input type="text" id="nome" name="nome" minlength="3" maxlength="60" required>
+
+          <label for="nascimento">Data de nascimento</label>
+          <input type="date" id="nascimento" name="nascimento" required>
+
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="telefone">Telefone</label>
+          <input type="tel" id="telefone" name="telefone"
+                 placeholder="(00) 00000-0000"
+                 pattern="\(\d{2}\) \d{5}-\d{4}"
+                 title="Use o formato (00) 00000-0000"
+                 required>
+        </fieldset>
+
+        <fieldset>
+          <legend>Seu plano</legend>
+
+          <label for="unidade">Unidade de preferência</label>
+          <select id="unidade" name="unidade" required>
+            <option value="">Selecione...</option>
+            <option value="centro">Iron Box Centro</option>
+            <option value="zona-sul">Iron Box Zona Sul</option>
+            <option value="litoral">Iron Box Litoral</option>
+          </select>
+
+          <p class="titulo-grupo">Tipo de plano</p>
+          <div class="opcao">
+            <input type="radio" id="plano-mensal" name="plano" value="mensal" required>
+            <label for="plano-mensal">Mensal</label>
+          </div>
+          <div class="opcao">
+            <input type="radio" id="plano-trimestral" name="plano" value="trimestral">
+            <label for="plano-trimestral">Trimestral</label>
+          </div>
+          <div class="opcao">
+            <input type="radio" id="plano-anual" name="plano" value="anual">
+            <label for="plano-anual">Anual</label>
+          </div>
+
+          <label for="objetivo">Qual é o seu objetivo?</label>
+          <textarea id="objetivo" name="objetivo" rows="4" maxlength="300"></textarea>
+
+          <div class="opcao">
+            <input type="checkbox" id="termos" name="termos" required>
+            <label for="termos">Aceito os termos de matrícula</label>
+          </div>
+        </fieldset>
+
+        <button type="submit" class="botao">Enviar matrícula</button>
+      </form>
+    </section>
+
+    <!-- LOCALIZAÇÃO (iframe com sandbox, Aula 4) -->
+    <section id="localizacao" class="localizacao">
+      <h2>Onde estamos</h2>
+
+      <iframe
+        src="https://www.openstreetmap.org/export/embed.html?bbox=-34.88%2C-7.15%2C-34.85%2C-7.10&amp;layer=mapnik"
+        width="720" height="380" loading="lazy"
+        sandbox="allow-scripts allow-same-origin"
+        title="Mapa de localização da Iron Box">
+      </iframe>
+    </section>
+
+  </main>
+
+  <!-- ===== RODAPÉ ===== -->
+  <footer class="rodape">
+    <p>&copy; 2026 Iron Box. Todos os direitos reservados.</p>
+    <p>
+      Mapa:
+      <a href="https://www.openstreetmap.org/" target="_blank" rel="noopener noreferrer">OpenStreetMap</a>
+    </p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

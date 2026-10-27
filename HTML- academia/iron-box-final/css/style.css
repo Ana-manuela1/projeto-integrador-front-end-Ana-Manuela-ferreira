@@ -1,0 +1,446 @@
+/* =====================================================
+   IRON BOX - style.css
+   Aula 6: variáveis, seletores, box model, textos, tabela
+   Aula 7: pseudo-classes, Flexbox e Grid
+   Aula 8: navbar, .ativo, dropdown, sticky, hambúrguer
+   ===================================================== */
+
+/* ===== VARIÁVEIS (Aula 6) ===== */
+:root {
+  --cor-fundo: #0a0a0a;
+  --cor-card: #141414;
+  --cor-texto: #f5f5f5;
+  --cor-texto-suave: #a0a0a0;
+  --cor-primaria: #3b82f6;   /* azul para textos e destaques */
+  --cor-botao: #1d4ed8;      /* azul mais escuro para fundos de botão */
+  --cor-botao-hover: #1e3a8a;
+  --cor-foco: #93c5fd;
+  --raio: 10px;
+  --sombra: 0 4px 16px rgba(0, 0, 0, 0.5);
+  --transicao: 0.2s ease;
+}
+
+/* ===== BASE ===== */
+body {
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-family: 'Bebas Neue', Arial, sans-serif;
+  font-weight: 400;
+  letter-spacing: 1px;
+  line-height: 1.1;
+}
+
+h1 { font-size: 4rem; }
+h2 { font-size: 2.5rem; margin-bottom: 1.5rem; }
+h3 { font-size: 1.6rem; margin-bottom: 0.5rem; }
+
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Cada seção tem espaço em cima para o título não ficar escondido sob a navbar sticky */
+section {
+  padding: 4rem 0 2rem;
+}
+
+img, video, iframe, canvas {
+  max-width: 100%;
+}
+
+/* ===== BOTÃO (serve para <a> e <button>) ===== */
+.botao {
+  display: inline-block;
+  background-color: var(--cor-botao);
+  color: var(--cor-texto);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 0.85rem 1.75rem;
+  border: none;
+  border-radius: var(--raio);
+  cursor: pointer;
+  transition: background-color var(--transicao), transform var(--transicao);
+}
+
+.botao:hover {
+  background-color: var(--cor-botao-hover);
+  transform: translateY(-3px);
+}
+
+/* Foco de teclado visível (Aula 7) */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--cor-foco);
+  outline-offset: 2px;
+}
+
+/* ===== NAVBAR COM FLEXBOX + STICKY (Aula 7 e 8) ===== */
+.topo {
+  position: sticky;
+  top: 0;
+  z-index: 100;               /* z-index no elemento que cria o contexto de empilhamento */
+  background-color: var(--cor-fundo);
+  border-bottom: 2px solid var(--cor-primaria);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.logo {
+  font-family: 'Bebas Neue', Arial, sans-serif;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  color: var(--cor-texto);
+  text-decoration: none;
+}
+
+.logo span {
+  color: var(--cor-primaria);
+}
+
+.menu {
+  display: flex;
+  gap: 1.25rem;
+  list-style: none;
+}
+
+.menu a {
+  display: block;
+  color: var(--cor-texto);
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 0.5rem 0;
+  transition: color var(--transicao);
+}
+
+.menu a:hover {
+  color: var(--cor-primaria);
+}
+
+/* Página atual (classe aplicada por mim) x :hover (aplicado pelo navegador) */
+.menu a.ativo {
+  color: var(--cor-primaria);
+  border-bottom: 2px solid var(--cor-primaria);
+}
+
+/* ===== DROPDOWN (Aula 8) ===== */
+.tem-dropdown {
+  position: relative;          /* o dropdown se posiciona em relação a este item */
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;                   /* encostado no item pai: sem "buraco" de hover */
+  left: 0;
+  z-index: 1;
+  min-width: 160px;
+  list-style: none;
+  background-color: var(--cor-card);
+  box-shadow: var(--sombra);
+  border-top: 2px solid var(--cor-primaria);
+}
+
+.dropdown a {
+  padding: 0.6rem 1rem;
+}
+
+.dropdown li:first-child a { padding-top: 0.8rem; }
+.dropdown li:last-child a  { padding-bottom: 0.8rem; }
+
+.tem-dropdown:hover .dropdown {
+  display: block;
+}
+
+/* ===== MENU HAMBÚRGUER: só a estrutura visual (Aula 8) ===== */
+.menu-hamburguer {
+  display: none;               /* aparece só em telas estreitas */
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.menu-hamburguer .barra {
+  width: 24px;
+  height: 3px;
+  background-color: var(--cor-texto);
+}
+
+/* ===== HERO ===== */
+.hero {
+  margin-top: 1.5rem;
+  padding: 6rem 1rem;
+  text-align: center;
+  border-radius: var(--raio);
+  background: radial-gradient(circle at center, #1e3a8a 0%, var(--cor-fundo) 75%);
+}
+
+.hero h1 span {
+  color: var(--cor-primaria);
+}
+
+.hero p {
+  color: var(--cor-texto-suave);
+  font-size: 1.2rem;
+  margin: 1rem 0 2rem;
+}
+
+/* ===== SOBRE: Grid com áreas nomeadas (Aula 7) ===== */
+.sobre-grid {
+  display: grid;
+  grid-template-columns: 1fr 180px;
+  grid-template-areas:
+    "texto selo"
+    "foto  foto";
+  gap: 2rem;
+  align-items: center;
+}
+
+.sobre-texto { grid-area: texto; }
+.sobre-selo  { grid-area: selo; text-align: center; }
+.sobre-foto  { grid-area: foto; }
+
+.sobre-texto > p {
+  color: var(--cor-texto-suave);
+  margin-bottom: 1rem;
+}
+
+.diferenciais {
+  list-style-type: square;
+  padding-left: 1.25rem;
+}
+
+.diferenciais li + li {
+  margin-top: 0.4rem;
+}
+
+/* texto do selo SVG usa a fonte dos títulos */
+.sobre-selo text {
+  font-family: 'Bebas Neue', Arial, sans-serif;
+}
+
+.sobre-foto img {
+  display: block;
+  width: 100%;
+  max-width: 560px;
+  margin: 0 auto;
+  border-radius: var(--raio);
+}
+
+figcaption {
+  color: var(--cor-texto-suave);
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+/* ===== UNIDADES: grade responsiva sem media query (Aula 7) ===== */
+.grade-unidades {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
+
+.unidade-card {
+  position: relative;
+  background-color: var(--cor-card);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+  padding: 1.75rem 1.5rem 1.5rem;
+  transition: transform var(--transicao);
+}
+
+/* Detalhe decorativo com pseudo-elemento */
+.unidade-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 1.5rem;
+  width: 48px;
+  height: 4px;
+  background-color: var(--cor-primaria);
+}
+
+.unidade-card:hover {
+  transform: translateY(-4px);   /* transform não dispara reflow */
+}
+
+.unidade-card p {
+  color: var(--cor-texto-suave);
+  font-size: 0.95rem;
+}
+
+/* ===== GRÁFICO (Canvas) ===== */
+.grafico {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.grafico canvas {
+  background-color: var(--cor-card);
+  border-radius: var(--raio);
+}
+
+/* ===== TABELA (Aula 6 e 7) ===== */
+.tabela-aulas {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.tabela-aulas caption {
+  color: var(--cor-texto-suave);
+  font-size: 0.9rem;
+  text-align: left;
+  margin-bottom: 0.5rem;
+}
+
+.tabela-aulas th,
+.tabela-aulas td {
+  border: 1px solid #262626;
+  padding: 0.6rem 0.9rem;
+  text-align: left;
+}
+
+.tabela-aulas th {
+  background-color: var(--cor-botao);
+  font-weight: 600;
+}
+
+.tabela-aulas tbody tr:nth-child(even) {
+  background-color: var(--cor-card);
+}
+
+/* ===== VÍDEO E MAPA ===== */
+.video video,
+.localizacao iframe {
+  display: block;
+  border: 2px solid var(--cor-primaria);
+  border-radius: var(--raio);
+}
+
+.localizacao iframe {
+  width: 100%;
+}
+
+/* ===== FORMULÁRIO ===== */
+.form-matricula {
+  max-width: 520px;
+}
+
+.form-matricula fieldset {
+  border: 1px solid var(--cor-primaria);
+  border-radius: var(--raio);
+  padding: 1rem 1.25rem 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-matricula legend {
+  color: var(--cor-primaria);
+  font-weight: bold;
+  padding: 0 0.5rem;
+}
+
+.form-matricula label {
+  display: block;
+  margin: 1rem 0 0.25rem;
+}
+
+.form-matricula input,
+.form-matricula select,
+.form-matricula textarea {
+  width: 100%;
+  padding: 0.6rem;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--cor-texto);
+  background-color: var(--cor-card);
+  border: 1px solid #333;
+  border-radius: 6px;
+  transition: border-color var(--transicao);
+}
+
+.form-matricula input:focus,
+.form-matricula select:focus,
+.form-matricula textarea:focus {
+  outline: none;
+  border-color: var(--cor-foco);
+}
+
+.titulo-grupo {
+  margin-top: 1rem;
+}
+
+/* radio e checkbox: input e label lado a lado */
+.form-matricula .opcao {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.form-matricula .opcao input {
+  width: auto;
+}
+
+.form-matricula .opcao label {
+  display: inline;
+  margin: 0;
+}
+
+/* ===== RODAPÉ: 4 estados do link na ordem LoVe/HAte (Aula 6) ===== */
+.rodape {
+  margin-top: 3rem;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  color: var(--cor-texto-suave);
+  font-size: 0.9rem;
+  background-color: var(--cor-card);
+  border-top: 2px solid var(--cor-primaria);
+}
+
+.rodape a:link    { color: var(--cor-primaria); text-decoration: none; }
+.rodape a:visited { color: #a78bfa; }
+.rodape a:hover   { text-decoration: underline; }
+.rodape a:active  { color: var(--cor-foco); }
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 900px) {
+  .menu-hamburguer { display: flex; }
+  .menu { display: none; }
+}
+
+@media (max-width: 640px) {
+  h1 { font-size: 2.8rem; }
+  h2 { font-size: 2rem; }
+
+  .hero { padding: 4rem 1rem; }
+
+  .sobre-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "selo"
+      "texto"
+      "foto";
+  }
+}
